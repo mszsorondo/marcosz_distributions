@@ -1,6 +1,6 @@
 import math
 import matplotlib.pyplot as plt
-from .Generaldistribution import Distribution
+from Generaldistribution import Distribution
 
 class Binomial(Distribution):
     """ Binomial distribution class for calculating and 
@@ -24,7 +24,7 @@ class Binomial(Distribution):
         self.n = size
         self.p = prob
         
-        Distribution.__init__(self, self.calculate_mean(), self.calculate_stdev())
+        Distribution.__init__(self, self.calculate_mean(), self.calculate_stdev)
     
                         
     
@@ -46,6 +46,7 @@ class Binomial(Distribution):
 
 
 
+    @property
     def calculate_stdev(self):
 
         """Function to calculate the standard deviation from p and n.
@@ -79,10 +80,8 @@ class Binomial(Distribution):
         self.n = len(self.data)
         self.p = 1.0 * sum(self.data) / len(self.data)
         self.mean = self.calculate_mean()
-        self.stdev = self.calculate_stdev()     
+        self.stdev = self.calculate_stdev
 
-    
-        
     def plot_bar(self):
         """Function to output a histogram of the instance variable data using 
         matplotlib pyplot library.
@@ -170,8 +169,8 @@ class Binomial(Distribution):
         result.n = self.n + other.n
         result.p = self.p
         result.calculate_mean()
-        result.calculate_stdev()
-        
+        result.calculate_stdev
+
         return result
         
         
